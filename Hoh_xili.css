@@ -1,0 +1,967 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.homepage_body {
+    display: grid;
+    grid-template-rows: auto 100vh auto auto auto auto auto 100vh auto auto;
+    grid-template-areas:
+        "header_line"
+        "introduce"
+        "animals_show"
+        "animal_video"
+        "life_of_tree"
+        "geo_wall"
+        "hero_storyTeller"
+        "story_movement"
+        "summary"
+        "footer_line";
+    min-height: 100vh;
+    overflow-x: hidden;
+    row-gap: 200px;
+    background-color: #faf9f6;
+
+}
+
+/* I have to use the CSS GRID as the main method,so I use the grid to divide into 10 portions */
+
+
+.homepage_body .background_video {
+    grid-row: 1/3;
+    grid-column: 1/-1;
+    /* this video will take 2 rows */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* ensure the video is nice to fit  the screen*/
+    z-index: -1;
+    /* The video is at the bottom layer. */
+}
+
+.header_line {
+    grid-area: header_line;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+
+    /*  freash green glas   */
+    background: linear-gradient(135deg,
+            rgba(3, 114, 103, 0.6) 0%,
+            rgba(3, 114, 103, 0.3) 100%);
+    border-bottom: 1px solid rgba(126, 212, 203, 0.6);
+    border-right: 1px solid rgba(188, 248, 242, 0.6);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+        0 15px 30px -5px rgba(0, 0, 0, 0.2);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+
+
+    font-family: "Long Cang", cursive;
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.header_container {
+    width: 100%;
+    max-width: 97%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.logo {
+    font-family: 'Long Cang', cursive;
+    font-size: 1.8rem;
+    font-weight: 400;
+    white-space: nowrap;
+    color: rgb(190, 250, 222);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.336);
+    margin-right: 0;
+}
+
+
+
+.navigation ul {
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 25px;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+
+
+}
+
+.navigation a {
+    position: relative;
+    text-decoration: none;
+    color: rgb(190, 250, 222);
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 5px 10px;
+    transition: color 0.3s;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* a little  animation  for navigation */
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 1px;
+    background-color: #ffffff;
+    transition: width 0.3s;
+
+}
+
+.navigation a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.navigation a:hover::after {
+    width: 100%;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.introduce {
+    grid-area: introduce;
+    display: grid;
+    align-content: center;
+    justify-content: end;
+    padding-right: 2%;
+    gap: 15px;
+    z-index: 1;
+
+}
+
+.introduce .slogan1 {
+    display: grid;
+    justify-content: end;
+    align-items: end;
+    font-family: "Long Cang", cursive;
+    font-size: 3rem;
+    font-weight: 600;
+    color: rgb(190, 250, 222);
+
+}
+
+.introduce .slogan2 {
+    display: grid;
+    justify-content: end;
+    align-items: end;
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: "Long Cang", cursive;
+    color: rgb(190, 250, 222);
+
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+
+/* second part  */
+.description_1 {
+    grid-area: animals_show;
+    position: relative;
+    width: 100%;
+    height: 85vh;
+
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas: "text_part photo_part";
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    gap: 8vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+
+.description_1 .background_pic2 {
+    grid-area: photo_part;
+    justify-self: start;
+    width: 45vw;
+    max-width: 800px;
+    height: auto;
+    max-height: 80vh;
+    object-fit: cover;
+    z-index: 1;
+    mix-blend-mode: multiply;
+}
+
+.slogan_part1 {
+    grid-area: text_part;
+    width: 180px;
+    display: flex;
+    align-items: start;
+    justify-content: flex-end;
+    gap: 40px;
+    z-index: 2;
+}
+
+
+.description_1 .slogan_title1 {
+
+    writing-mode: vertical-rl;
+    font-family: "Long Cang", cursive;
+    font-size: 3.8rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: #4a4a4a;
+
+    /* animation setting */
+    opacity: 0;
+    animation: fadeUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+
+}
+
+.description_1 .slogan3 {
+    writing-mode: vertical-lr;
+    font-family: "Long Cang", cursive;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    letter-spacing: 0.3em;
+    color: #4a4a4a;
+    ;
+    margin: 0;
+    margin-top: 40px;
+
+
+    /* animation setting  */
+    opacity: 0;
+    animation: fadeUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.9s forwards;
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+}
+
+/* part 3 */
+.deer_show {
+    grid-area: animal_video;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas: "video_part info_part";
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    overflow: hidden;
+    gap: 6vw;
+    padding: 0;
+}
+
+
+.deer_video1 {
+    grid-area: video_part;
+    width: 45vw;
+    max-width: 800px;
+    height: 75vh;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.deer_introduction {
+    grid-area: info_part;
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    right: 5%;
+    gap: 40px;
+}
+
+.deer_introduction h1 {
+    writing-mode: horizontal-tb;
+    font-family: "Long Cang", cursive;
+    font-size: 3.8rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: #3a3a3a;
+    margin: 0;
+    align-self: center;
+
+
+    /* animation setting */
+    opacity: 0;
+    animation: fadeUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+
+}
+
+.deer_introduction p {
+    writing-mode: horizontal-tb;
+    font-size: 1.5rem;
+    font-family: 'Noto Serif SC', 'Songti SC', serif;
+
+    color: #4a4a4a;
+    line-height: 2;
+    letter-spacing: 0.1em;
+    margin-left: 40px;
+    align-self: center;
+    opacity: 0;
+    animation: fadeUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards;
+
+
+}
+
+.deer_introduction .btn_1 {
+    background: linear-gradient(135deg,
+            rgba(3, 114, 103, 0.6) 0%,
+            rgba(3, 114, 103, 0.3) 100%);
+    border-bottom: 1px solid rgba(126, 212, 203, 0.6);
+    border-right: 1px solid rgba(188, 248, 242, 0.6);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: rgb(209, 255, 234);
+    display: flex;
+    align-self: center;
+
+}
+
+
+
+.btn_1:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 25px rgba(34, 66, 52, 0.25);
+    background: linear-gradient(135deg, rgba(34, 66, 52, 0.85) 0%, rgba(34, 66, 52, 0.5) 100%);
+}
+
+/* part 4 */
+
+.geography_line {
+
+    grid-area: life_of_tree;
+    position: relative;
+    width: 100%;
+    height: 85vh;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas: "txt_part allPics_part";
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 8vw;
+    overflow: hidden;
+
+}
+
+.geography_line .life_tree {
+    grid-area: allPics_part;
+    width: 45vw;
+    max-width: 800px;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    z-index: 1;
+}
+
+.life_tree_discription {
+    grid-area: txt_part;
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 40px;
+}
+
+
+.life_tree_discription h1 {
+
+    writing-mode: vertical-rl;
+    font-family: "Long Cang", cursive;
+    font-size: 3.8rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: #4a4a4a;
+    margin: 0;
+
+    opacity: 0;
+    animation: fadeUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.life_tree_discription p {
+
+    writing-mode: vertical-lr;
+    font-family: "Long Cang", cursive;
+    font-size: 1.8rem;
+    line-height: 1.8;
+    letter-spacing: 0.3em;
+    color: #4a4a4a;
+    margin: 0;
+    margin-top: 40px;
+    opacity: 0;
+    animation: fadeUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.9s forwards;
+}
+
+
+/* part 5 */
+
+.geo_groupShow {
+    grid-area: geo_wall;
+    width: 90vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: space-between;
+
+}
+
+.gallery {
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    gap: 1.2vw;
+    align-items: stretch;
+}
+
+
+
+.pic2 {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    height: 100%;
+}
+
+
+
+.pic1 {
+    grid-column: 3 / 4;
+    grid-row: 1 / 2;
+
+}
+
+.pic3 {
+    grid-column: 4 / 5;
+    grid-row: 1 / 2;
+
+}
+
+.pic4 {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+
+
+}
+
+.pic5 {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+
+
+}
+
+.gallery div {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+
+    position: relative;
+    z-index: 1;
+    transform: scale(0.9);
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.gallery div img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.5)grayscale(80%);
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.gallery div:hover {
+    transform: scale(1.1);
+    z-index: 10;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.gallery div:hover img {
+
+    filter: brightness(1) grayscale(0%);
+}
+
+.geo_info {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+
+.geo_info h1 {
+    writing-mode: horizontal-tb;
+    font-family: "Long Cang", cursive;
+    font-size: 3.8rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: #3a3a3a;
+    margin: 0;
+    align-self: center;
+
+
+    /* animation setting */
+    opacity: 0;
+    animation: fadeUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.geo_info p {
+    writing-mode: horizontal-tb;
+    font-size: 1.5rem;
+    font-family: 'Noto Serif SC', 'Songti SC', serif;
+    color: #4a4a4a;
+    line-height: 2;
+    letter-spacing: 0.1em;
+    margin-left: 20px;
+    align-self: center;
+    opacity: 0;
+    animation: fadeUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards;
+}
+
+
+.btn_2 {
+    background: linear-gradient(135deg,
+            rgba(3, 114, 103, 0.6) 0%,
+            rgba(3, 114, 103, 0.3) 100%);
+    border-bottom: 1px solid rgba(126, 212, 203, 0.6);
+    border-right: 1px solid rgba(188, 248, 242, 0.6);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: rgb(209, 255, 234);
+    align-self: center;
+}
+
+.btn_2:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 25px rgba(34, 66, 52, 0.25);
+    background: linear-gradient(135deg, rgba(34, 66, 52, 0.85) 0%, rgba(34, 66, 52, 0.5) 100%);
+}
+
+/* part 6 */
+.story {
+    grid-area: hero_storyTeller;
+    position: relative;
+    z-index: 20;
+
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+    overflow: hidden;
+    z-index: 20;
+
+    align-self: start;
+    background-color: #faf9f6;
+}
+
+.story .hero_stone {
+
+    display: grid;
+    grid-auto-flow: row;
+    align-content: center;
+    width: 55%;
+    max-width: 800px;
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+
+
+
+
+}
+
+.hero_history {
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    gap: 40px;
+
+
+}
+
+
+.hero_history h1 {
+
+    writing-mode: vertical-rl;
+    font-family: "Long Cang", cursive;
+    font-size: 3.8rem;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: #4a4a4a;
+    margin: 0;
+
+    opacity: 0;
+    animation: fadeUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.hero_history p {
+
+    writing-mode: vertical-lr;
+    font-family: "Long Cang", cursive;
+    font-size: 1.8rem;
+    line-height: 1.8;
+    letter-spacing: 0.3em;
+    color: #4a4a4a;
+    margin: 0;
+    margin-top: 40px;
+    opacity: 0;
+    animation: fadeUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.9s forwards;
+
+}
+
+/* part 7 */
+
+.story_sticky {
+    grid-row: hero_storyTeller-start / summary-end;
+    grid-column: 1 / -1;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.story_sticky img {
+    position: sticky;
+    top: 0;
+
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center center;
+}
+
+
+
+
+
+
+/* part 8*/
+
+.protection_work {
+    grid-area: summary;
+    position: relative;
+    z-index: 20;
+
+    background-color: #faf9f6;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4vh;
+    margin: 0;
+    padding: 80px 10vw 35vh;
+    min-height: 60vh;
+}
+
+
+.news_title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4a4a4a;
+    cursor: pointer;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+
+}
+
+
+.news_panel {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    width: 100%;
+
+    padding: 0 5%;
+    box-sizing: border-box;
+    max-height: 45vh;
+    overflow: auto;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    background-color: #faf9f6;
+}
+
+
+.main_panel {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
+.protection_work:hover .main_panel {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.news_nav:hover .news_panel {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+.news_nav:hover .news_title {
+    color: #2c5e43;
+    border-bottom: 3px solid #2c5e43;
+}
+
+.news_panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.news_panel li {
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+
+
+
+/* part 9 */
+
+.footer_line {
+
+    grid-area: footer_line;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+    padding: 40px 20px 25px;
+    width: 100%;
+    z-index: 50;
+
+
+    background: linear-gradient(135deg, rgba(3, 114, 103, 0.6) 0%, rgba(3, 114, 103, 0.3) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 -15px 35px -5px rgba(0, 0, 0, 0.1);
+}
+
+
+.bottom_link ul {
+    list-style: none;
+    display: flex;
+    gap: 5vw;
+
+    padding: 0;
+    margin: 0;
+}
+
+
+.bottom_link a {
+    text-decoration: none;
+
+    color: rgb(190, 250, 222);
+
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+}
+
+.bottom_link a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+.footer_line p {
+    color: #333;
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: 'Noto Serif SC', 'Songti SC', serif;
+    letter-spacing: 0.1em;
+    margin: 0;
+    align-self: flex-end;
+}
+
+/* I want to this page is also good for mobile screen, 
+so it has to change automatically when people use mobile to see it */
+
+@media (max-width:768px) {
+    .homepage_body {
+        row-gap: 0;
+    }
+
+    .header_line {
+        font-size: 1.2rem;
+        padding: 10px;
+        ;
+    }
+
+    .introduce .slogan1 {
+        font-size: 0.9rem;
+    }
+
+    .introduce .slogan2 {
+        font-size: 0.6rem;
+
+    }
+
+    .navigation ul {
+        gap: 10px;
+
+    }
+
+    .navigation a {
+        font-size: 0.9rem;
+    }
+
+    .description_1,
+    .deer_show,
+    .geography_line,
+    .geo_groupShow,
+    .story {
+        grid-template-columns: auto auto;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        gap: 10px;
+        padding: 0 5px;
+        height: auto;
+        min-height: 60vh;
+    }
+
+    .description_1 .background_pic2,
+    .deer_video1,
+    .geography_line .life_tree,
+    .geo_groupShow .gallery {
+        width: 45vw;
+        height: auto;
+        max-height: 40vh;
+        justify-self: center;
+    }
+
+    .slogan_part1,
+    .deer_introduction,
+    .life_tree_discription,
+    .geo_info {
+        width: 100%;
+        gap: 15px;
+        justify-self: center;
+    }
+
+
+    .description_1 .slogan_title1,
+    .life_tree_discription h1,
+    .deer_introduction h1,
+    .geo_info h1,
+    .hero_history h1 {
+        font-size: 0.9rem;
+        letter-spacing: 0.1em;
+    }
+
+    .description_1 .slogan3,
+    .life_tree_discription p,
+    .deer_introduction p,
+    .geo_info p,
+    .hero_history p {
+        font-size: 0.6rem;
+        letter-spacing: 0.1em;
+        margin-top: 10px;
+    }
+
+    .deer_introduction p {
+        margin-left: 0;
+        line-height: 1.5;
+    }
+
+
+    .deer_introduction .btn_1,
+    .btn_2 {
+        width: max-content;
+        padding: 3px 5px;
+        font-size: 0.6rem;
+    }
+
+    .news_nav .news_title {
+        font-size: 0.9rem;
+    }
+
+    .news_panel li {
+        font-size: 0.6rem;
+    }
+
+    .bottom_link a {
+        font-size: 0.6rem;
+    }
+
+    .footer_line p {
+        font-size: 0.6rem;
+    }
+}
